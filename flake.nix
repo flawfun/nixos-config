@@ -24,7 +24,7 @@
     { self, nixpkgs, ... }@inputs:
     {
       nixosConfigurations = {
-        Cinnamoroll = nixpkgs.lib.nixosSystem {
+        Dunker = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
             unstable = import inputs.nixpkgs-unstable {
@@ -32,43 +32,9 @@
               config.allowUnfree = true;
             };
           };
-          modules = [ ./hosts/cinnamoroll/configuration.nix ];
+          modules = [ ./hosts/dunker/configuration.nix ];
         };
 
-        Malos = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-            unstable = import inputs.nixpkgs-unstable {
-              system = "x86_64-linux";
-              config.allowUnfree = true;
-            };
-          };
-          modules = [ ./hosts/malos/configuration.nix ];
-        };
-
-        Mythra = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-            unstable = import inputs.nixpkgs-unstable {
-              system = "x86_64-linux";
-              config.allowUnfree = true;
-            };
-          };
-          modules = [ ./hosts/mythra/configuration.nix ];
-        };
-
-        Paisley-Park = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-            nur-xddxdd = import inputs.nur-xddxdd { };
-            unstable = import inputs.nixpkgs-unstable {
-              system = "x86_64-linux";
-              config.allowUnfree = true;
-            };
-          };
-          modules = [ ./hosts/paisley-park/configuration.nix ];
-        };
-      };
 
     };
 }
