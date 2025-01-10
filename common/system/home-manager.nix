@@ -89,17 +89,6 @@
         };
       };
 
-      services.swayidle = {
-        enable = true;
-        timeouts = [
-          {
-            timeout = 300;
-            command = ''${lib.getExe pkgs.curl} -s --json '{"method": "resume", "id": 1}' -H 'Authorization: Bearer password' http://localhost:6969/json_rpc'';
-            resumeCommand = ''${lib.getExe pkgs.curl} -s --json '{"method": "pause", "id": 1}' -H 'Authorization: Bearer password' http://localhost:6969/json_rpc'';
-          }
-        ];
-      };
-
       xdg = {
         # configFile."nvim".source = "/home/kyler/code/neovim-config/";
         configFile."nvim".source = inputs.neovim-config;
