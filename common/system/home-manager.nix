@@ -105,4 +105,4 @@
         configFile."nvim".source = inputs.neovim-config;
       };
     };
-}
+}; }
